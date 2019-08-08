@@ -15,7 +15,8 @@ import { HighchartsService } from './highcharts.service';
     BrowserAnimationsModule,
     FormsModule,
     PagesModule,
-    routing,ChartModule
+    routing,
+    ChartModule
   ],
   declarations: [
     AppComponent,

@@ -17,6 +17,7 @@ export class IndexComponent implements OnInit {
     chart: {
       type: 'column'
   },
+  colors: ['#3172cc','#31b7cc','#ffa600','#ccb531','#4c2734'],
   title: {
       text: 'Scope Change'
   },
@@ -26,7 +27,7 @@ export class IndexComponent implements OnInit {
   yAxis: {
       min: 0,
       title: {
-          text: 'Scope Change '
+        //   text: 'Priority'
       },
       stackLabels: {
           enabled: true,
@@ -58,21 +59,32 @@ export class IndexComponent implements OnInit {
   plotOptions: {
       column: {
           stacking: 'normal',
-          dataLabels: {
-              enabled: true
-          }
+            dataLabels: {
+                enabled: true,
+                color:  'white'
+            }
+         
       }
   },
   series: [{
-      name: 'Added Scope',
-      data: [5, 3, 4, 7, 2]
+      name: 'Low',  
+      data: [0, 3, 4, 7, 0],
+      
   }, {
-      name: 'Commited',
-      data: [2, 2, 3, 2, 1]
+      name: 'Highest',
+      data: [0, 2, 3, 2, 0]
   }, {
-      name: 'Removed',
-      data: [3, 4, 4, 2, 5]
-  }]
+      name: 'Medium',
+       data: [0, 0, 4, 2, 8]
+  },{
+    name: 'High',
+     data: [0, 4, 4, 0, 0]
+},
+{
+    name: 'Lowest',
+    data: [5, 5, 4, 2, 0]
+}
+]
 
   };
 }
