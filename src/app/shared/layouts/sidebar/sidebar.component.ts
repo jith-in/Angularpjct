@@ -37,12 +37,12 @@ export class SidebarComponent implements OnInit, AfterViewInit {
         this.sidebarToggle = data.value;
       }
     }, error => {
-      console.log('Error: ' + error);
+      //console.log('Error: ' + error);
     });
 
   }
 
-  /* 初始化 判断当前路由状态信息 首次加载菜单状态 */
+  
   _isSelectItem(item) {
     for (const i in item) {
       if (item[i].children) {
@@ -63,11 +63,11 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.sidebarToggle = window.innerWidth >= 970;
-    console.log(window.innerWidth);
+    //console.log(window.innerWidth);
   }
 
   ngAfterViewInit(): void {
     this.sidebarToggle = window.innerWidth >= 970;
-    console.log(window.innerWidth);
+   // console.log(window.innerWidth);
   }
 }

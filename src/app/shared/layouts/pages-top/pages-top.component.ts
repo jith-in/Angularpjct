@@ -30,7 +30,7 @@ export class PagesTopComponent implements AfterViewInit {
         this.sidebarToggle = data.value;
       }
     }, error => {
-      console.log('Error: ' + error);
+      //console.log('Error: ' + error);
     });
     this._globalService.dataBusChanged('sidebarToggle', !this.sidebarToggle);
 

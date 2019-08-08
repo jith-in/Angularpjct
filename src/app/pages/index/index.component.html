@@ -44,20 +44,28 @@
     </div>
   </div>
   <div class="col-md-8">
-    <card cardTitle='Priority' isCollapse="true">
+    <card cardTitle='Charts' isCollapse="true">
+      <select (change)="selectChangeHandler($event)">
+        <option value="Priority">Priority</option>
+        <option value="Velocity">Velocity Predictability</option>
+        <option value="Accepted">Accepted/Commited</option>
+        <option value="Scope">Scope Change</option>
+      </select>
+
+
       <div #charts></div>
     </card>
   </div>
   <div class="col-md-4">
-      <card cardTitle="Todo List" isCollapse="true">
-   <du-todolist></du-todolist>
-  </card>
-  
+    <card cardTitle="Todo List" isCollapse="true">
+      <du-todolist></du-todolist>
+    </card>
+
   </div>
   <div class="col-md-6">
 
   </div>
   <div class="col-md-6">
-    
+
   </div>
 </div>

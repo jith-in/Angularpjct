@@ -24,7 +24,7 @@ export class ContentTopComponent {
         this.routeTitle = data.value.title;
       }
     }, error => {
-      console.log('Error: ' + error);
+     // console.log('Error: ' + error);
     });
   }
 

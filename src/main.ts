@@ -13,4 +13,7 @@ enableProdMode();
 platformBrowserDynamic().bootstrapModule(AppModule, {
   preserveWhitespaces: true
 })
-.catch(err => console.log(err));
+.catch(
+  //err => 
+  //console.log(err)
+  );

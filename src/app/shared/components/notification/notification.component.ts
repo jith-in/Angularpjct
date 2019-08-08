@@ -28,7 +28,7 @@ export class NotificationComponent implements OnInit {
         this.notificationItem.push(data.value)
       }
     }, error => {
-      console.log('Error: ' + error);
+      //console.log('Error: ' + error);
     });
   }
 

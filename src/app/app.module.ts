@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule } from 'angular-highcharts';
 import { HighchartsService } from './highcharts.service';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -16,7 +16,8 @@ import { HighchartsService } from './highcharts.service';
     FormsModule,
     PagesModule,
     routing,
-    ChartModule
+    ChartModule, 
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
