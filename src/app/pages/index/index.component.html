@@ -2,50 +2,51 @@
   <div class="col-md-3 animated fadeIn">
     <div class="card card-block tip-card">
       <div class="tip-msg">
-        <h3>Users</h3>
-        <span>118 / 251</span>
+        <h3>Commited</h3>
+        <!-- <span>118 / 251</span> -->
       </div>
-      <button class="tip-ico tip-ico-primary">
-        <i class="fa fa-group fa-fw"></i>
+      <button class="tip-ico tip-ico-primary" (click)="handleClick('Accepted')">
+        <i class="fa fa-handshake-o"></i>
       </button>
     </div>
   </div>
   <div class="col-md-3 animated fadeIn">
     <div class="card card-block tip-card">
       <div class="tip-msg">
-        <h3>Messages</h3>
-        <span>2 messages</span>
+        <h3>Priority</h3>
+        <!-- <span>2 messages</span> -->
       </div>
-      <button class="tip-ico tip-ico-info">
-        <i class="fa fa-comments fa-fw"></i>
+      <button class="tip-ico tip-ico-info" (click)="handleClick('Priority')">
+        <i class="fa fa-hourglass-start"></i>
       </button>
     </div>
   </div>
   <div class="col-md-3 animated fadeIn">
     <div class="card card-block tip-card">
       <div class="tip-msg">
-        <h3>Mails</h3>
-        <span>2 mails</span>
+        <h3>Velocity</h3>
+        <!-- <span>2 mails</span> -->
       </div>
-      <button class="tip-ico tip-ico-success">
-        <i class="fa fa-envelope fa-fw"></i>
+      <button class="tip-ico tip-ico-success" (click)="handleClick('Velocity')">
+        <i class="fa fa-users"></i>
       </button>
     </div>
   </div>
   <div class="col-md-3 animated fadeIn">
     <div class="card card-block tip-card">
       <div class="tip-msg">
-        <h3>Feedback</h3>
-        <span>20 feedbacks</span>
+        <h3>Scope</h3>
+        <!-- <span>20 feedbacks</span> -->
       </div>
-      <button class="tip-ico tip-ico-danger">
-        <i class="fa fa-warning fa-fw"></i>
+      <button class="tip-ico tip-ico-danger" (click)="handleClick('Scope')">
+        <i class="fa fa-bar-chart"></i>
       </button>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-12">
     <card cardTitle='Charts' isCollapse="true">
       <select (change)="selectChangeHandler($event)">
+          <option value="">---Select---</option>
         <option value="Priority">Priority</option>
         <option value="Velocity">Velocity Predictability</option>
         <option value="Accepted">Accepted/Commited</option>
@@ -56,16 +57,16 @@
       <div #charts></div>
     </card>
   </div>
-  <div class="col-md-4">
-    <card cardTitle="Todo List" isCollapse="true">
-      <du-todolist></du-todolist>
-    </card>
-
-  </div>
+  
   <div class="col-md-6">
 
   </div>
   <div class="col-md-6">
-
+    <h1></h1> 
+    <ul> 
+      <li *ngFor = "let data of data"> 
+          {{data.SprintName}} ---> {{data.SuccessRate}}  
+      </li> 
+    </ul>
   </div>
 </div>

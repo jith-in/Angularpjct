@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { HighchartsService } from '../../highcharts.service';
+import {ProjectMetricsService} from '../../projectmetrics.service'
+import { ProjectModel } from './ProjectModel ';
 
 @Component({
   selector: 'app-index',
@@ -9,34 +11,51 @@ import { HighchartsService } from '../../highcharts.service';
 })
 export class IndexComponent implements OnInit {
   @ViewChild('charts') public chartEl: ElementRef;
-  constructor(private highcharts: HighchartsService) {
-
+  constructor(private highcharts: HighchartsService,private projectserv : ProjectMetricsService) {
+    this.projectserv.GetSuccessrate().subscribe((data) => {  
+      this.data = data;
+      console.log(this.data)
+    });
 
   }
   scope: string = "Y";
   velocity: string;
   types: string[];
   selectedChart: string = ''
+  data : ProjectModel[]; 
+
+  ngOnInit() {
+    this.highcharts.createChart(this.chartEl.nativeElement, this.priorityDetails);
+  }
+
 
   selectChangeHandler(event: any) {
 
     this.selectedChart = event.target.value;
     if (this.selectedChart == "Priority")
       this.highcharts.createChart(this.chartEl.nativeElement, this.priorityDetails);
-    if (this.selectedChart == "Velocity") {
+    if (this.selectedChart == "Velocity") 
       this.highcharts.createChart(this.chartEl.nativeElement, this.velocityPredictability);
-    }
     if (this.selectedChart == "Accepted")
       this.highcharts.createChart(this.chartEl.nativeElement, this.acceptedCommited);
     if (this.selectedChart == "Scope") {
       this.highcharts.createChart(this.chartEl.nativeElement, this.scopeDetails);
     }
   }
-  ngOnInit() {
 
+  handleClick(type: string) {
+    if(type == "Accepted")
+    this.highcharts.createChart(this.chartEl.nativeElement, this.acceptedCommited);
+    if(type == "Priority")
     this.highcharts.createChart(this.chartEl.nativeElement, this.priorityDetails);
-
+    if(type == "Velocity")
+    this.highcharts.createChart(this.chartEl.nativeElement, this.velocityPredictability);
+    if(type == "Scope")
+    this.highcharts.createChart(this.chartEl.nativeElement, this.scopeDetails);
   }
+
+
+  
 
   priorityDetails = {
     chart: {
@@ -44,7 +63,11 @@ export class IndexComponent implements OnInit {
     },
     colors: ['#3172cc', '#31b7cc', '#ffa600', '#ccb531', '#4c2734'],
     title: {
-      text: 'Priority'
+      text: 'Priority',
+      style: {
+        fontWeight: 'bold',size:'10px'
+    }
+      
     },
     xAxis: {
       categories: ['MAT Sprint1', 'MAT Sprint2', 'MAT Sprint3', 'MAT Sprint4', 'MAT Sprint5']
@@ -52,7 +75,8 @@ export class IndexComponent implements OnInit {
     yAxis: {
       min: 0,
       title: {
-        text: 'Priority'
+        text: 'Priority',
+        
       },
       stackLabels: {
         enabled: true,
